@@ -51,7 +51,7 @@ router.patch('/:id',(req,res)=>{
         }
         else{
             Count.findById(address,(err,doc)=>{
-                Count.findByIdAndUpdate(address,{add:++doc.update})
+                Count.findByIdAndUpdate(address,{update:++doc.update},(err,doc)=>{})
             })
             res.json({Updated:doc})
         }

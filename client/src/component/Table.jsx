@@ -26,8 +26,16 @@ export default function Table() {
         // always executed
       });
   },[changed]);
-  const handleUpdate =(id)=>{
-    console.log("update from main");
+  const handleUpdate =(id,update)=>{
+    const url = "http://localhost:5000/you/"+id
+    axios.patch(url,update)
+      .then(function(response){
+        console.log(response.data);
+        setChanged(prev=>!prev);
+      })
+      .catch(function(err){
+        console.log(err);
+      })
   }
   const handleDelete =(id)=>{
     const url = "http://localhost:5000/you/" + id

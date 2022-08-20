@@ -54,7 +54,7 @@ export default function Form(props) {
         {props.isAdd && <tr>
             <td style = {props.isAdd? style:null}className='margin'><input type="text" onChange={handleForm} value = {data.name} name = "name" placeholder='Enter Your Name'/></td>
             <td style = {props.isAdd? style:null}className='margin'><input className ="age" type="number" onChange={handleForm} value = {data.age} name = "age" placeholder='Enter Your Age'/></td>
-            <td style = {props.isAdd? style:null}className='margin'><input type="text" onChange={handleForm} value = {data.phno} name="phno" placeholder='Enter Your Number'/></td>
+            <td style = {props.isAdd? style:null}className='margin'><input type="tel" onChange={handleForm} value = {data.phno} name="phno" placeholder='Enter Your Number'/></td>
             <td style = {props.isAdd? style:null}className='margin'><input type="email" onChange={handleForm} value = {data.email} name="email" placeholder='Enter Your Email'/></td>
             <td><button onClick={addname}>Add</button></td>
             <td><button onClick={cancel}>Cancel</button></td>
