@@ -6,19 +6,24 @@ const Count = require("../model/countSchema");
 const address  = '63012edef8a7e9a6803a372f';
 
 router.post('/', async (req, res) => {
-    const data = req.body;
-    const newPerson = new Your(data);
-    const savePerson = await newPerson.save();
-    if (savePerson) {
-        Count.findById(address,(err,doc)=>{
-            if(!err){
-                Count.findByIdAndUpdate(address,{add:++doc.add},(err,doc)=>{})
-            }
-        })
-        res.status(201).json({ message: "Thanks, Your data Saved Successfully" });
+    try{
+        const data = req.body;
+        const newPerson = new Your(data);
+        const savePerson = await newPerson.save();
+        if (savePerson) {
+            Count.findById(address,(err,doc)=>{
+                if(!err){
+                    Count.findByIdAndUpdate(address,{add:++doc.add},(err,doc)=>{})
+                }
+            })
+            res.status(201).json({ message: "Thanks, Your data Saved Successfully" });
+        }
+        else {
+            res.status(500).json({ error: "Failed To Add Your data successfully" });
+        }
     }
-    else {
-        res.status(500).json({ error: "Failed To Add Your data successfully" });
+    catch(err){
+        res.status(404).json(err);
     }
 })
 router.get('/',(req,res)=>{

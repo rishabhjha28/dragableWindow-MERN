@@ -14,8 +14,10 @@ export default function TableRow(props) {
     if(changes.age)update.age=changes.age
     if(changes.phno)update.phno=changes.phno
     if(changes.email)update.email=changes.email
-    if(changes.func)changes.func(false);
-    props.handleUpdate(props.data._id,update)
+    if(changes.func){
+      changes.func(false);
+      props.handleUpdate(props.data._id,update)
+    }
   }
   const handleDelete =()=>props.handleDelete(props.data._id)
   return (

@@ -30,7 +30,6 @@ export default function Table() {
     const url = "http://localhost:5000/you/"+id
     axios.patch(url,update)
       .then(function(response){
-        console.log(response.data);
         setChanged(prev=>!prev);
       })
       .catch(function(err){

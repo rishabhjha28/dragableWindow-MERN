@@ -7,11 +7,16 @@ const yourSchema = new mongoose.Schema({
     },
     age: {
         type: Number,
-        required: true
+        required: true,
+        min:[0,"age should be of atleast 0"],
+        max:[120, "age should be of not more than 120"]
+        
     },
     phno: {
         type: Number,
-        required: true
+        required: true,
+        min:[1000000000,"phno should be of 10 digits"],
+        max:[9999999999, "phno should be of 10 digits"]
     },
     email: {
         type: String,
